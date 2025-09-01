@@ -6,6 +6,7 @@ import { connectDB } from './lib/db.js'
 
 
 const app = express();
+app.use(express.json()); //allows to extract json data from the request body
 
 app.use("/api/auth", authRoutes);
 
