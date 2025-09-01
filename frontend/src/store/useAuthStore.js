@@ -15,7 +15,6 @@ export const useAuthStore = create((set) => ({ //useAuthStore: A hook that you c
 
   isCheckingAuth: true, //loading state
 
-  onlineUsers: [],
 
   checkAuth: async() => {
     try {
