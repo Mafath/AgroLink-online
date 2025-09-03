@@ -29,4 +29,19 @@ export const useAuthStore = create((set) => ({ //useAuthStore: A hook that you c
   },
 
 
+  signup: async (data) => {
+    set({ isSigningUp: true });
+    try {
+      const res = await axiosInstance.post("/auth/signup", data);  //api me endpoint ekt call krnw, and we are passing the 'data' that user sents us
+      // uda const res kynne api user data backend ekt ywwt psse, backend eken ena response eka
+      set({ authUser: res.data });
+      toast.success("Account created successfully");
+    } catch (error) {
+      toast.error(error.response.data.message); //this is how we can grab the message that we are sending from the signup
+    } finally {
+      set({ isSigningUp: false });
+    }
+  },
+
+
 }));
